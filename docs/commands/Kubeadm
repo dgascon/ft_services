@@ -1,0 +1,5 @@
+# Initialisation du cluster
+	kubeadm init
+
+# Ajout de node supplémentaire
+	kubeadm join --token <token> <master_ip>:<master_port>

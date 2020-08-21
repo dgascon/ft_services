@@ -1,0 +1,24 @@
+# Description
+	kubectl est un binaire qui s'installe indépendemment de kubernetes, il permet de communiquer avec le cluster via des commandes shell
+
+# Récupère les différentes ressources
+	kubectl get <pods, nodes, deployments>
+		-n <namespace>	:| Precise une ressource en particulier |:
+
+# Mise en place du réseau pour la communication entre les pods
+	kubectl apply -f ""
+
+# Lancement d un pod
+	kubectl create -f POD_SPEC.yaml
+
+# Description d un pod
+	kubectl describe pod POD_NAME
+
+# Logs d un container d un pod
+	kubectl logs POD_NAME [-c CONTAINER_NAME]
+
+# lancer une commande dans un pod
+	kubectl exec POD_NAME [-c CONTAINER_NAME] -- COMMAND
+
+# Suppression d un pod
+	kubectl delete pod POD_NAME

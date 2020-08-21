@@ -1,0 +1,12 @@
+Chaque ressource Pod, Service, Deployment sont basé sur les mêmes spécification.
+
+Fichier yaml ou json
+Structure commune avec :
+	- apiVersion (Groupe pour gérer la ressource)
+	- kind (Le type de ressource [Pod, Service, Deployment])
+	- metadata (Specification. Format Key: Value)
+		- name (Nom de la ressource)
+		[Additionnel (Key: Value)]
+		- labels (Selection d objets)
+		- annotation (config, ajoute fonctionnalité externe à une app)
+		...

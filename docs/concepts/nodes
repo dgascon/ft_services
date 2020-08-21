@@ -1,0 +1,39 @@
+# Description
+	On distingue deux types de nodes la Master et la worker.
+	La master est en charge de la gestion du cluster.
+	La worker est en charge de faire fonctionner les applications
+
+# Lors de la récupération des nodes, plusieurs colonnes sont disposée (Name, Status, Roles, Age, Version)
+	- Name c'est le nom de la node
+	- Status c'est le status de la node (Starting, ready,
+	- Roles c'est le role qu'à la node dans le cluster donc Master ou Worker / None / Node
+		- Le Master est responsable de la gestion du cluster ("control plane"), il expose l'api et schedule les podes sur les nodes du cluster
+		- Le worker c'est la node ou sont placé les pods applicatifs. Il communique avec le master et fournit les ressources aux pods.
+
+# On peux distinguer de nombreux processus qui sont soit dédié à un role de node spécifique ou pour les deux.
+	- Les processus de la node master :
+		- kube-controller-manager
+			Ensemble de controleurs effectuant des actions correctives pour atteindre l'état souhaité
+		- kube-scheduler
+			Selectionne le node sur lequel un pod sera lancé
+		- kube-proxy [Master / Worker]
+			Gere les regles réseau pour l exposition des services
+		- kube-apiserver
+			Point d entrée exposant l API HTTP Rest de K8s
+		- etcd [Master / Worker]
+			Key-value store distribué contenant l ensemble des données du cluster
+		- kubelet [Master / Worker]
+			Assure que les containers d un pod tournent conformément à la spécification
+		- container-runtime [Master / Worker]
+			Environnement d execution des containers
+
+	- Les processus de la node worker :
+		- Les différents pods
+		- kube-proxy [Master / Worker]
+			Gere les regles réseau pour l exposition des services
+		- etcd [Master / Worker]
+			Key-value store distribué contenant l ensemble des données du cluster
+		- kubelet [Master / Worker]
+			Assure que les containers d un pod tournent conformément à la spécification
+		- container-runtime [Master / Worker]
+			Environnement d execution des containers

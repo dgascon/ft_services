@@ -1,0 +1,14 @@
+# Lancer minikube
+minikube start
+
+# Arreter minikube
+minikube stop
+
+# Connaitre la version de minikube
+minikube version
+
+# Connaitre le status de minikube
+minikube status
+
+# Afficher le dashboard
+minikube dashboard

@@ -1,0 +1,18 @@
+# Cluster
+Un cluster est un ensemble de nodes (Linux / Windows).
+
+# Nodes
+On distingue deux types de nodes la Master et la worker.
+La master est en charge de la gestion du cluster.
+La worker est en charge de faire fonctionner les applications
+
+# Pods
+Un pods est la plus petite unité applicative qui tourne sur un cluster Kubernetes.
+Il est aussi un ensemble de containers qui partagent des resources réseau et / ou stockage.
+Schematiquement, il est contenu dans une node et il peux en avoir plusieurs cote à cote.
+
+# Deployment
+Un deployment permet de gérer un ensemble de pods identiques (mise à jour, rollback)
+
+# Service
+Expose les applications des pods à l'intérieur ou à l'extérieur du cluster
