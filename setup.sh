@@ -1,3 +1,6 @@
+#minikube start
+eval $(minikube docker-env)
+sh delete.sh
+kubectl apply -f srcs/metallb/metallb.yaml
 docker build -t services-nginx srcs/nginx/.
-kubectl delete pod nginx
-kubectl create -f srcs/nginx/nginx.yaml
+kubectl apply -f srcs/nginx/nginx.yaml
