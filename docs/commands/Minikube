@@ -12,3 +12,5 @@ minikube status
 
 # Afficher le dashboard
 minikube dashboard
+
+minikube service nginx-service
