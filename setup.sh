@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Mise en place des variables d environnement
 eval $(minikube docker-env)
 
@@ -5,8 +7,9 @@ eval $(minikube docker-env)
 sh delete.sh
 
 # Installation metallb
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/namespace.yaml
-kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.3/manifests/metallb.yaml
+kubectl apply -f srcs/metallb/namespace.yaml
+kubectl apply -f srcs/metallb/metallb-manif.yaml
+kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
 # Application du yaml de metallb
 kubectl apply -f srcs/metallb/metallb.yaml
