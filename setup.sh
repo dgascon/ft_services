@@ -31,10 +31,9 @@ function setup_mysql {
   kubectl apply -f srcs/mysql/mysql.yaml
 }
 
-function setup {
-
+function restart {
   # Mise en place des variables d environnement
-  eval $(minikube docker-env)
+  eval "$(minikube docker-env)"
 
   # Suppression des donnees preexistante
   delete
@@ -49,14 +48,34 @@ function setup {
   setup_mysql
 }
 
+function start {
 
-if [ "$1" == "dashboard" ]
-then
-  dashboard
-elif [ "$1" == "start" ] || [ -z "$1" ]
-then
-  setup
-elif [ "$1" == "delete" ]
-then
-  delete
-fi
+  # Mise en place des variables d environnement
+  eval "$(minikube docker-env)"
+
+  # Installation metallb and Application du yaml de metallb
+  setup_metallb
+
+  # Application et build du yaml de nginx
+  setup_nginx
+
+  # Application et build du yaml de mysql
+  setup_mysql
+}
+
+case "$1" in
+  "")
+    start
+    ;;
+  start)
+    start
+    ;;
+  restart)
+    restart
+    ;;
+  delete)
+    delete
+    ;;
+  dashboard)
+    ;;
+esac
