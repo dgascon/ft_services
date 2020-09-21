@@ -26,6 +26,11 @@ function setup_nginx {
   kubectl apply -f srcs/nginx/nginx.yaml
 }
 
+function setup_mysql {
+  docker build -t services-mysql srcs/mysql/.
+  kubectl apply -f srcs/mysql/mysql.yaml
+}
+
 function setup {
 
   # Mise en place des variables d environnement
@@ -39,6 +44,9 @@ function setup {
 
   # Application et build du yaml de nginx
   setup_nginx
+
+  # Application et build du yaml de mysql
+  setup_mysql
 }
 
 
