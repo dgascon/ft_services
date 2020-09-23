@@ -5,6 +5,7 @@ metadata:
   labels:
     app: mysql-deployment
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: mysql
@@ -17,3 +18,6 @@ spec:
         - name: mysql
           imagePullPolicy: Never
           image: services-mysql
+          ports:
+            - containerPort: 3306
+              name: mysql

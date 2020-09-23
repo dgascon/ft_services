@@ -11,4 +11,4 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data"
+    path: "/media/dgascon/SSD/ProjectShareVM/ft_services/srcs/mysql/"

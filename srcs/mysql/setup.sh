@@ -1,5 +1,6 @@
-/etc/init.d/mariadb start
-
+apk add openrc
+openrc reboot
+rc-service mariadb start
 echo "CREATE DATABASE wpdb;" | mysql
 echo "CREATE USER 'user42'@'localhost' identified by 'user42';" | mysql
 echo "GRANT ALL PRIVILEGES ON *.* TO 'user42'@'localhost';" | mysql
