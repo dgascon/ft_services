@@ -35,6 +35,12 @@ function setup_mysql {
   kubectl apply -f srcs/mysql/mysql-deployment.yaml
 }
 
+function setup_phpmyadmin {
+    docker build -t services-phpmyadmin srcs/phpmyadmin/.
+    kubectl apply -f srcs/phpmyadmin/phpmyadmin-service.yaml
+    kubectl apply -f srcs/phpmyadmin/phpmyadmin-deployment.yaml
+}
+
 function restart {
   # Mise en place des variables d environnement
   eval "$(minikube docker-env)"
@@ -50,6 +56,8 @@ function restart {
 
   # Application et build du yaml de mysql
   setup_mysql
+
+  setup_phpmyadmin
 }
 
 function start {
@@ -65,6 +73,9 @@ function start {
 
   # Application et build du yaml de mysql
   setup_mysql
+
+  setup_phpmyadmin
+
 }
 
 case "$1" in
