@@ -42,13 +42,17 @@ function setup_metallb {
 
 function setup_nginx {
   docker build -t services-nginx srcs/nginx/.
-  kubectl apply -f srcs/nginx/nginx.yaml
+  kubectl apply -f srcs/nginx/nginx-service.yaml
+  kubectl apply -f srcs/nginx/nginx-deployment.yaml
 }
 
 
 function setup_mysql {
   docker build -t services-mysql srcs/mysql/.
-  kubectl apply -f srcs/mysql/mysql.yaml
+  kubectl apply -f srcs/mysql/mysql-pv.yaml
+  kubectl apply -f srcs/mysql/mysql-pvc.yaml
+  kubectl apply -f srcs/mysql/mysql-service.yaml
+  kubectl apply -f srcs/mysql/mysql-deployment.yaml
 }
 
 
