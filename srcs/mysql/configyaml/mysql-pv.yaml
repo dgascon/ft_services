@@ -7,8 +7,12 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 128Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/media/dgascon/SSD/ProjectShareVM/ft_services/srcs/mysql/"
+    path: "/Users/dgascon/Documents/ft_services/mysql"
+  persistentVolumeReclaimPolicy: Retain
+  claimRef:
+    namespace: default
+    name: mysql-pv-claim
