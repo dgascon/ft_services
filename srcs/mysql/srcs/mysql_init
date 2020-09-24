@@ -1,0 +1,12 @@
+USE mysql;
+FLUSH PRIVILEGES;
+CREATE USER 'wp_admin'@'%' identified by 'wp_admin';
+GRANT ALL ON wordpress.* TO 'wp_admin'@'%' identified by 'wp_admin' WITH GRANT OPTION;
+
+CREATE USER 'wp_user'@'%' identified by 'wp_user';
+
+CREATE USER 'pma_admin'@'%' identified by 'pma_admin';
+GRANT ALL ON *.* TO 'pma_admin'@'%' identified by 'pma_admin' WITH GRANT OPTION;
+
+CREATE DATABASE wordpress;
+FLUSH PRIVILEGES;
