@@ -1,10 +1,13 @@
 #!/bin/bash
 
-
-function dashboard {
-  minikube dashboard
+function @ {
+  echo "Execute function $1" | tr '_' ' '
+  if [[ "$DEBUG" == 'False' ]]; then
+    eval "$1 $#" 1> /dev/null
+  elif [[ "$DEBUG" == 'True' ]]; then
+    eval "$1 $#"
+  fi
 }
-
 
 function clean {
   kubectl delete --all deployments
@@ -13,6 +16,11 @@ function clean {
   kubectl delete --all pvc
   kubectl delete --all secrets
   kubectl delete --all pv
+
+  kubectl delete --all deployments -n metallb-system
+  kubectl delete --all pods -n metallb-system
+  kubectl delete --all services -n metallb-system
+  kubectl delete --all secrets -n metallb-system
 }
 
 
@@ -24,7 +32,7 @@ function delete {
 
 
 function setup_metallb {
-
+  sed -e "s/IP_START/$MINIKUBE_START/g;s/IP_END/$MINIKUBE_END/g" srcs/metallb/template_metallb.yaml > srcs/metallb/metallb.yaml
   kubectl apply -f srcs/metallb/namespace.yaml
   kubectl apply -f srcs/metallb/metallb-manif.yaml
   kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
@@ -46,47 +54,50 @@ function setup_mysql {
 
 function setup_wp {
     docker build -t service-wp ./srcs/wordpress/.
-    #kubectl apply -f ./srcs/wordpress/wordpress-deployment.yaml
-    kubectl apply -k ./
+    kubectl apply -f ./srcs/wordpress/srcs/wordpress.yaml
 }
 
 
 function restart {
-
-  # Suppression des donnees preexistante
   clean
-
   start
 }
 
 
 function start {
-
-  # Mise en place des variables d environnement
-  eval "$(minikube docker-env)"
-
-  # Installation metallb and Application du yaml de metallb
-  setup_metallb
-
-  # Application et build du yaml de nginx
-  setup_nginx
-
-  # Application et build du yaml de mysql
-  setup_mysql
-
-  # Application et build du yaml de wp
-  setup_wp
+  @ get_ip
+  @ setup_metallb
+  @ setup_nginx
+  @ setup_mysql
+  @ setup_wp
 }
 
+function get_ip {
+    MINIKUBE_IP=$(minikube ip)
+    MINIKUBE_IP_1_3=$(echo "$MINIKUBE_IP" | cut -d '.' -f 1).$(echo "$MINIKUBE_IP" | cut -d '.' -f 2).$(echo "$MINIKUBE_IP" | cut -d '.' -f 3)
+    START=$(echo "$MINIKUBE_IP" | cut -d '.' -f 4)
 
-function lunch {
+    MINIKUBE_START="$MINIKUBE_IP_1_3".$((START + 1))
+    MINIKUBE_END="$MINIKUBE_IP_1_3".254
+}
+
+eval "$(minikube docker-env)"
+
+MINIKUBE_IS_LUNCH=$(minikube ip | wc -l | bc)
+
+if [[ "$MINIKUBE_IS_LUNCH" == 2 ]]; then
   minikube start --driver=virtualbox
-  start
-}
+fi
+
+if [[ "$2" == 'DEBUG=True' ]]; then
+  DEBUG='True'
+else
+  DEBUG='False'
+fi
 
 case "$1" in
   "")
-    lunch
+    start
     ;;
   start)
     start
@@ -101,6 +112,6 @@ case "$1" in
     delete
     ;;
   dashboard)
-    dashboard
+    minikube dashboard
     ;;
 esac
