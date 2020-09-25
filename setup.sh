@@ -64,6 +64,7 @@ function start() {
   (@log setup nginx &)
   (@log setup mysql &)
   (@log setup phpmyadmin &)
+  (@log setup wordpress &)
 }
 
 function get_ip() {

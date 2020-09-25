@@ -15,6 +15,18 @@
   <component name="ChangeListManager">
     <list default="true" id="0fd64f20-a89f-4512-8817-bb471e710e32" name="Default Changelist" comment="[MAJ] setup.sh and metallb">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/entrypoint.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/lighttpd.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/mod_fastcgi.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wordpress.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/wordpress/srcs/wordpress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/wordpress/configyaml/wordpress-deployment.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +66,22 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
-      <recent name="$PROJECT_DIR$/srcs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/wordpress/configyaml" />
       <recent name="$PROJECT_DIR$/srcs/metallb" />
       <recent name="$PROJECT_DIR$/srcs/metallb/template" />
       <recent name="$PROJECT_DIR$/srcs/metallb/configyaml" />
       <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
-      <recent name="$PROJECT_DIR$/srcs/mysql" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
+      <recent name="$PROJECT_DIR$/srcs" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -168,10 +180,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="920" y="488" key="MultipleFileMergeDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600970835168" />
-    <state x="1042" y="429" key="RollbackChangesDialog" timestamp="1600970917981">
+    <state x="1042" y="429" key="RollbackChangesDialog" timestamp="1601030533820">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="1042" y="429" key="RollbackChangesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600970917981" />
+    <state x="1042" y="429" key="RollbackChangesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1601030533820" />
     <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1600970966818">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
