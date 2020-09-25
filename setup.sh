@@ -83,7 +83,7 @@ fi
 
 eval "$(minikube docker-env)"
 
-if [[ "$2" == 'DEBUG=True' ]]; then
+if [[ "$2" == 'DEBUG=True' ]] || [[ "$2" == '-d' ]] || [[ "$2" == '--debug' ]]; then
   DEBUG='True'
 else
   DEBUG='False'
