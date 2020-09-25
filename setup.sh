@@ -17,18 +17,18 @@ function clean() {
     clean_service "$service";
   done
   clean_metallb
-  kubectl delete --all pvc
-  kubectl delete --all secrets
-  kubectl delete --all pv
+  (kubectl delete --all pvc &)
+  (kubectl delete --all secrets &)
+  (kubectl delete --all pv &)
 }
 
 function clean_service() {
   if [[ "$DEBUG" == 'True' ]]; then
-    kubectl delete --wait=False deployment "$1"
+    (kubectl delete --wait=False deployment "$1" &)
   else
-    kubectl delete deployment "$1"
+    (kubectl delete deployment "$1" &)
   fi
-  kubectl delete service "$1"-service
+  (kubectl delete service "$1"-service &)
 }
 
 function clean_metallb() {

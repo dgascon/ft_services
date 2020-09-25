@@ -9,10 +9,7 @@ spec:
   capacity:
     storage: 128Mi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
-    path: /Users/dgascon/Documents/ft_services/mysql
+    path: /Users/dgascon/Documents/ft_services/srcs/mysql/databases
   persistentVolumeReclaimPolicy: Retain
-  claimRef:
-    namespace: default
-    name: mysql-pvc
