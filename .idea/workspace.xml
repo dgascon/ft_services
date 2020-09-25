@@ -14,28 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd64f20-a89f-4512-8817-bb471e710e32" name="Default Changelist" comment="[MAJ] setup.sh and metallb">
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/loading_database.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/mariadb-server.cnf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/mysql_init" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/phpmyadmin.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/setup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-deployment.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-service.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-pv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-pvc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pvc.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/mysql/setup.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/configyaml/nginx-deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/configyaml/nginx-service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +69,13 @@
       <recent name="$PROJECT_DIR$/srcs/mysql" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -103,6 +92,7 @@
       <workItem from="1600928313955" duration="10850000" />
       <workItem from="1600955828116" duration="1806000" />
       <workItem from="1600967649393" duration="3596000" />
+      <workItem from="1601015524413" duration="1614000" />
     </task>
     <task id="LOCAL-00001" summary="[MAJ] setup.sh reorganiser">
       <created>1600685649560</created>
@@ -173,6 +163,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="1018" y="474" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600929708662" />
+    <state x="867" y="295" key="CommitChangelistDialog2" timestamp="1601016502706">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="867" y="295" key="CommitChangelistDialog2/0.0.2560.1440@0.0.2560.1440" timestamp="1601016502706" />
     <state x="920" y="488" key="MultipleFileMergeDialog" timestamp="1600970835168">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
