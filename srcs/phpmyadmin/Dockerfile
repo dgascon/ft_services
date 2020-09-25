@@ -11,7 +11,7 @@ RUN mkdir -p /www
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN tar -xvf phpMyAdmin-5.0.2-all-languages.tar.gz
 RUN mv phpMyAdmin-5.0.2-all-languages/* /www/.
-RUN rm -rf phpMyAdmin-5.0.2-all-languages.tar.gz
+RUN rm -rf phpMyAdmin-5.0.2-all-languages.tar.gz phpMyAdmin-5.0.2-all-languages
 
 COPY ./srcs/setup.sh .
 COPY ./srcs/config.inc.php /www/.

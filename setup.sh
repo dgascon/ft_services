@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin)
+SERVICES=(nginx mysql phpmyadmin wordpress)
 
 function @log() {
   echo "Execute function $*" | tr '_' ' '
