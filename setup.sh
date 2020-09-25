@@ -1,5 +1,7 @@
 #!/bin/bash
 
+SERVICES=(nginx mysql phpmyadmin)
+
 function @log() {
   echo "Execute function $*" | tr '_' ' '
   if [[ "$DEBUG" == 'False' ]]; then
@@ -11,18 +13,25 @@ function @log() {
 }
 
 function clean() {
-  if [[ "$DEBUG" == 'True' ]]; then
-    kubectl delete --all --wait=False deployments
-    kubectl delete --all --wait=False pods
-  else
-    kubectl delete --all deployments
-    kubectl delete --all pods
-  fi
-  kubectl delete --all services
+  for service in ${SERVICES[*]}; do
+    clean_service "$service";
+  done
+  clean_metallb
   kubectl delete --all pvc
   kubectl delete --all secrets
   kubectl delete --all pv
+}
 
+function clean_service() {
+  if [[ "$DEBUG" == 'True' ]]; then
+    kubectl delete --wait=False deployment "$1"
+  else
+    kubectl delete deployment "$1"
+  fi
+  kubectl delete service "$1"-service
+}
+
+function clean_metallb() {
   if [[ "$DEBUG" == 'True' ]]; then
     kubectl delete --all --wait=False deployments -n metallb-system
     kubectl delete --all --wait=False pods -n metallb-system
@@ -61,9 +70,9 @@ function restart() {
 function start() {
   @log get_ip
   @log setup_metallb
-  (@log setup nginx &)
-  (@log setup mysql &)
-  (@log setup phpmyadmin &)
+  for service in ${SERVICES[*]}; do
+    (@log setup "$service" &)
+  done
 }
 
 function get_ip() {
@@ -110,5 +119,17 @@ dashboard)
   ;;
 ip)
   get_ip
+  ;;
+setup_metallb)
+  @log setup_metallb
+  ;;
+clean_metallb)
+  clean_metallb
+  ;;
+setup)
+  @log setup "$2"
+  ;;
+clean_service)
+  clean_service "$2"
   ;;
 esac

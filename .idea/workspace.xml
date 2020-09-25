@@ -14,7 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0fd64f20-a89f-4512-8817-bb471e710e32" name="Default Changelist" comment="[MAJ] setup.sh and metallb">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,13 +68,6 @@
       <recent name="$PROJECT_DIR$/srcs/mysql" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +85,7 @@
       <workItem from="1600955828116" duration="1806000" />
       <workItem from="1600967649393" duration="3596000" />
       <workItem from="1601015524413" duration="1614000" />
+      <workItem from="1601038655171" duration="627000" />
     </task>
     <task id="LOCAL-00001" summary="[MAJ] setup.sh reorganiser">
       <created>1600685649560</created>
@@ -176,10 +172,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1600970966818" />
-    <state x="945" y="345" key="run.anything.popup" timestamp="1600697433819">
+    <state x="945" y="345" key="run.anything.popup" timestamp="1601038759132">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="945" y="345" key="run.anything.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600697433819" />
+    <state x="945" y="345" key="run.anything.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1601038759132" />
     <state x="945" y="328" width="670" height="676" key="search.everywhere.popup" timestamp="1601021932767">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
