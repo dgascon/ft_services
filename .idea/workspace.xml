@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0fd64f20-a89f-4512-8817-bb471e710e32" name="Default Changelist" comment="[MAJ] setup.sh and metallb">
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/loading_database.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/mariadb-server.cnf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/mysql_init" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/phpmyadmin.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/mysql/srcs/setup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-deployment.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/configyaml/phpmyadmin-service.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/config.inc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/srcs/phpmyadmin/srcs/setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-deployment.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-pv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-pvc.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pvc.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/mysql-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/setup.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/configyaml/nginx-deployment.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx-service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/configyaml/nginx-service.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/nginx/srcs/nginx.conf" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="minikube" />
+    <option name="namespace" value="default" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="2c0n9ygp" />
+  </component>
+  <component name="ProjectId" id="1hoVPJntuUsLOduovI1c7bPcmej" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/srcs/wordpress/srcs" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
+      <recent name="$PROJECT_DIR$/srcs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/srcs/metallb" />
+      <recent name="$PROJECT_DIR$/srcs/metallb/template" />
+      <recent name="$PROJECT_DIR$/srcs/metallb/configyaml" />
+      <recent name="$PROJECT_DIR$/srcs/wordpress/srcs" />
+      <recent name="$PROJECT_DIR$/srcs/mysql" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0fd64f20-a89f-4512-8817-bb471e710e32" name="Default Changelist" comment="" />
+      <created>1600677412019</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600677412019</updated>
+      <workItem from="1600677416595" duration="10192000" />
+      <workItem from="1600703298150" duration="192000" />
+      <workItem from="1600768135012" duration="1197000" />
+      <workItem from="1600774859013" duration="4478000" />
+      <workItem from="1600859623747" duration="2563000" />
+      <workItem from="1600928313955" duration="10850000" />
+      <workItem from="1600955828116" duration="1806000" />
+      <workItem from="1600967649393" duration="3596000" />
+    </task>
+    <task id="LOCAL-00001" summary="[MAJ] setup.sh reorganiser">
+      <created>1600685649560</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600685649560</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[FIX] setup.sh with case, delete.sh deleted">
+      <created>1600691035016</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1600691035016</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[MAJ] setup.sh up">
+      <created>1600789381614</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1600789381614</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[MAJ] template metallb">
+      <created>1600952087917</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600952087917</updated>
+    </task>
+    <task id="LOCAL-00005" summary="[MAJ] setup.sh and metallb">
+      <created>1600970953510</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1600970953510</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.php" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[MAJ] setup.sh reorganiser" />
+    <MESSAGE value="[FIX] setup.sh with case, delete.sh deleted" />
+    <MESSAGE value="[MAJ] setup.sh up" />
+    <MESSAGE value="[MAJ] template metallb" />
+    <MESSAGE value="[MAJ] setup.sh and metallb" />
+    <option name="LAST_COMMIT_MESSAGE" value="[MAJ] setup.sh and metallb" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1018" y="474" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600929708662">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1018" y="474" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600929708662" />
+    <state x="920" y="488" key="MultipleFileMergeDialog" timestamp="1600970835168">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="920" y="488" key="MultipleFileMergeDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600970835168" />
+    <state x="1042" y="429" key="RollbackChangesDialog" timestamp="1600970917981">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="1042" y="429" key="RollbackChangesDialog/0.0.2560.1440@0.0.2560.1440" timestamp="1600970917981" />
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2" timestamp="1600970966818">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="880" y="460" key="Vcs.Push.Dialog.v2/0.0.2560.1440@0.0.2560.1440" timestamp="1600970966818" />
+    <state x="945" y="345" key="run.anything.popup" timestamp="1600697433819">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="945" y="345" key="run.anything.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600697433819" />
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup" timestamp="1600931868419">
+      <screen x="0" y="0" width="2560" height="1440" />
+    </state>
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600931868419" />
+    <state x="945" y="328" key="search.everywhere.popup/0.23.2560.1337@0.23.2560.1337" timestamp="1600704548303" />
+  </component>
+</project>

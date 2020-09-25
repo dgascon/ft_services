@@ -1,0 +1,15 @@
+Index: srcs/metallb/metallb.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apiVersion: v1\nkind: ConfigMap\nmetadata:\n  namespace: metallb-system\n  name: config\ndata:\n  config: |\n    address-pools:\n    - name: default\n      protocol: layer2\n      addresses:\n      - 192.168.99.116-192.168.99.254\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- srcs/metallb/metallb.yaml	(revision 4d0e61d521d5762c02a9aa433b88b451b94af40e)
++++ srcs/metallb/metallb.yaml	(date 1600970376000)
+@@ -9,4 +9,4 @@
+     - name: default
+       protocol: layer2
+       addresses:
+-      - 192.168.99.116-192.168.99.254
++      - 192.168.99.125-192.168.99.254

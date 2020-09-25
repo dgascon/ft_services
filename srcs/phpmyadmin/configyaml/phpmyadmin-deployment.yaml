@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+        - name: phpmyadmin
+          imagePullPolicy: Never
+          image: services-phpmyadmin
+          ports:
+            - containerPort: 5000
+          env:
+            - name: PMA_HOST
+              value: mysql-service
+            - name: PMA_PORT
+              value: "3306"
