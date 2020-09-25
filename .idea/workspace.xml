@@ -18,6 +18,7 @@
       <change beforePath="$PROJECT_DIR$/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/metallb/metallb.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/configyaml/mysql-pv.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/srcs/mysql/srcs/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/srcs/mysql/srcs/setup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,9 +71,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -183,10 +184,10 @@
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="945" y="345" key="run.anything.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600697433819" />
-    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup" timestamp="1600931868419">
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup" timestamp="1601021932767">
       <screen x="0" y="0" width="2560" height="1440" />
     </state>
-    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1600931868419" />
+    <state x="945" y="328" width="670" height="676" key="search.everywhere.popup/0.0.2560.1440@0.0.2560.1440" timestamp="1601021932767" />
     <state x="945" y="328" key="search.everywhere.popup/0.23.2560.1337@0.23.2560.1337" timestamp="1600704548303" />
   </component>
 </project>

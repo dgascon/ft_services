@@ -12,7 +12,7 @@ else
     # Start mysqld
     mysqld --user=root --datadir=./data & ./loading_database.sh
     echo "Starting..."
-    while [ true ]
-    do true
+    while [ true ]; do
+      true
     done
 fi

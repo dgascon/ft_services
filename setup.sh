@@ -7,6 +7,7 @@ function @log() {
   elif [[ "$DEBUG" == 'True' ]]; then
     eval "$*"
   fi
+    echo "Function $2 done"
 }
 
 function clean() {
@@ -40,7 +41,7 @@ function delete() {
 }
 
 function setup_metallb() {
-  #sed -e "s/IP_START/$MINIKUBE_START/g;s/IP_END/$MINIKUBE_END/g" srcs/metallb/template/template_metallb.yaml > srcs/metallb/metallb.yaml
+  sed -e "s/IP_START/$MINIKUBE_START/g;s/IP_END/$MINIKUBE_END/g" srcs/metallb/template/template_metallb.yaml > srcs/metallb/metallb.yaml
   kubectl apply -f srcs/metallb/namespace.yaml
   kubectl apply -f srcs/metallb/metallb-manif.yaml
   kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
@@ -50,7 +51,6 @@ function setup_metallb() {
 function setup() {
   docker build -t services-"$1" srcs/phpmyadmin/.
   kubectl apply -f srcs/"$1"/configyaml/.
-  echo "Function $1 done"
 }
 
 function restart() {

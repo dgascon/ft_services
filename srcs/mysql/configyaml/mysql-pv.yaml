@@ -11,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/Users/dgascon/Documents/ft_services/mysql"
+    path: /Users/coscialp/Documents/ft_services/mysql
   persistentVolumeReclaimPolicy: Retain
   claimRef:
     namespace: default
