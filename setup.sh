@@ -49,7 +49,7 @@ function setup_metallb() {
 }
 
 function setup() {
-  docker build -t services-"$1" srcs/phpmyadmin/.
+  docker build -t services-"$1" srcs/"$1"/.
   kubectl apply -f srcs/"$1"/configyaml/.
 }
 
