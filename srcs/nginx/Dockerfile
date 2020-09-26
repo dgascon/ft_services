@@ -7,8 +7,10 @@ RUN apk upgrade --no-cache
 
 RUN apk add nginx --no-cache
 RUN apk add openssl --no-cache
+RUN apk add openssh --no-cache
 
 RUN adduser -D -g 'www' www
+RUN echo "www:www" | chpasswd
 
 RUN mkdir -p /run/nginx /www /etc/nginx/ssl
 
@@ -18,8 +20,10 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/d
     -subj "/C=FR/ST=France/L=Lyon/O=42Lyon/OU=42Network/CN=localhost/emailAddress=dgascon@student.42lyon.fr"
 
 COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
-COPY ./srcs/index.html /www/index.html
+COPY ./srcs/index.html /
+COPY ./srcs/setup.sh /
 
+RUN chmod +x /setup.sh
 RUN nginx
 
-CMD nginx -g 'daemon off;'
+ENTRYPOINT ["/bin/sh", "/setup.sh"]
