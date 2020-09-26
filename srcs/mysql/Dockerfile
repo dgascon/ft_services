@@ -6,12 +6,14 @@ RUN apk update --no-cache
 RUN apk upgrade --no-cache
 RUN apk add mysql --no-cache
 RUN apk add mysql-client --no-cache
-RUN mkdir -p /run/mysqld
+RUN apk add bash --no-cache
 
-#Setup mysql
-RUN mysql_install_db --user=root --datadir=./data
+RUN mkdir -p /run/mysqld
 
 COPY ./srcs/mariadb-server.cnf ./etc/my.cnf.d/
 COPY ./srcs/ /
 
-ENTRYPOINT ["/bin/sh", "/setup.sh"]
+RUN chmod +x /setup.sh
+RUN chmod 0444 /etc/my.cnf.d/mariadb-server.cnf
+
+ENTRYPOINT ["/bin/bash", "/setup.sh"]

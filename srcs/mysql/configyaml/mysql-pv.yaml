@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 128Mi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   hostPath:
-    path: /Users/dgascon/Documents/ft_services/srcs/mysql/databases
+    path: /mnt/data/mysql
   persistentVolumeReclaimPolicy: Retain
