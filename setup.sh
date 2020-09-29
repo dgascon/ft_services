@@ -50,7 +50,7 @@ function delete() {
 }
 
 function setup_metallb() {
-  sed -e "s/IP_START/$MINIKUBE_START/g;s/IP_END/$MINIKUBE_END/g" srcs/metallb/template/template_metallb.yaml > srcs/metallb/metallb.yaml
+  sed -e "s/IP_START/$MINIKUBE_START/g;s/IP_END/$MINIKUBE_END/g" srcs/metallb/template/template_metallb.tpl > srcs/metallb/metallb.yaml
   kubectl apply -f srcs/metallb/namespace.yaml
   kubectl apply -f srcs/metallb/metallb-manif.yaml
   kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
@@ -69,6 +69,9 @@ function restart() {
 
 function start() {
   @log get_ip
+
+  pwdesc=$(echo "$PWD" | sed 's_/_\\/_g')
+  sed -e "s/PWD/$pwdesc/g" srcs/mysql/configyaml/template/template_mysql-pv.tpl > srcs/mysql/configyaml/mysql-pv.yaml
   @log setup_metallb
   for service in ${SERVICES[*]}; do
     (@log setup "$service" &)
