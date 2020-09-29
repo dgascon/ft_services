@@ -16,4 +16,7 @@ RUN rm -rf phpMyAdmin-5.0.2-all-languages.tar.gz phpMyAdmin-5.0.2-all-languages
 COPY ./srcs/setup.sh .
 COPY ./srcs/config.inc.php /www/.
 
+RUN chmod +x /setup.sh
+RUN chmod a-w /www/config.inc.php
+
 ENTRYPOINT ["/bin/sh", "/setup.sh"]

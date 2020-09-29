@@ -11,8 +11,5 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /Users/dgascon/Documents/ft_services/mysql
+    path: /mnt/data/mysql
   persistentVolumeReclaimPolicy: Retain
-  claimRef:
-    namespace: default
-    name: mysql-pvc
