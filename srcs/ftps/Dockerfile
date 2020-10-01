@@ -19,9 +19,10 @@ RUN mkdir -p /etc/vsftpd/ssl
 
 COPY ./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-RUN openssl req -new -x509 -days 365 -nodes -out /etc/ssl/private/vsftpd.cert.pem -keyout /etc/ssl/private/vsftpd.key.pem -subj "/C=FR/ST=France/L=Lyon/O=42Lyon/OU=42Network/CN=localhost/emailAddress=dgascon@student.42lyon.fr"
+RUN openssl req -new -x509 -days 365 -nodes -out /etc/ssl/private/vsftpd.cert.pem -keyout /etc/ssl/private/vsftpd.key.pem \
+    -subj "/C=FR/ST=France/L=Lyon/O=42Lyon/OU=42Network/CN=localhost/emailAddress=dgascon@student.42lyon.fr"
 
-RUN chown root:root /etc/ssl/private/vsftpd.cert.*
-RUN chmod 600 /etc/ssl/private/vsftpd.cert.*
+COPY ./srcs/setup.sh /setup.sh
+RUN chmod +x /setup.sh
 
-RUN rc-service vsftpd restart
+ENTRYPOINT ["/bin/sh", "/setup.sh"]
