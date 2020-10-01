@@ -23,6 +23,8 @@ else
 
     @eColor "Install basic..." "Install basic Done" /usr/bin/mysql -u root -proot < mysql_init
     @eColor "Install PhpMyadmin..." "Install PhpMyadmin Done" /usr/bin/mysql -u root -proot < phpmyadmin.sql
+    @eColor "Install UserWordpressTable..." "Install UserWordpressTable Done" /usr/bin/mysql -u root -proot < wordpress.sql
+    @eColor "Install UserWordpress..." "Install UserWordpress Done" /usr/bin/mysql -u root -proot < my_user.sql
 fi
 
 while [ true ]

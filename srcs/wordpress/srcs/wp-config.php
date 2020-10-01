@@ -56,7 +56,7 @@ define( 'LOGGED_IN_SALT',   'dgascon-coscialp42lyonft_service' );
 define( 'NONCE_SALT',       'dgascon-coscialp42lyonft_service' );
 
 /**#@-*/
-
+define( 'CUSTOM_USER_TABLE', $table_prefix.'my_users' );
 /**
  * WordPress Database Table prefix.
  *
