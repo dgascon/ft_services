@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-EXPOSE 80 443
+EXPOSE 80 443 22
 
 RUN apk update --no-cache
 RUN apk upgrade --no-cache

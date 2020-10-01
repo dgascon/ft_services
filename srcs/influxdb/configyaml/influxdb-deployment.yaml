@@ -1,0 +1,36 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb-deployment
+spec:
+  selector:
+    matchLabels:
+      app: influxdb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - image: services-influxdb
+          imagePullPolicy: Never
+          name: mysql
+          ports:
+            - containerPort: 8086
+          volumeMounts:
+            - name: influxdb-persistent-storage
+              mountPath: /var/lib/influxdb/
+          livenessProbe:
+            tcpSocket:
+              port: 8086
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 8
+      volumes:
+        - name: influxdb-persistent-storage
+          persistentVolumeClaim:
+            claimName: influxdb-pvc

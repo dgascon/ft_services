@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin wordpress)
+SERVICES=(nginx mysql phpmyadmin wordpress influxdb)
 
 function @log() {
   echo "Execute function $*" | tr '_' ' '
@@ -69,9 +69,6 @@ function restart() {
 
 function start() {
   @log get_ip
-
-  pwdesc=$(echo "$PWD" | sed 's_/_\\/_g')
-  sed -e "s/PWD/$pwdesc/g" srcs/mysql/configyaml/template/template_mysql-pv.tpl > srcs/mysql/configyaml/mysql-pv.yaml
   @log setup_metallb
   for service in ${SERVICES[*]}; do
     (@log setup "$service" &)
