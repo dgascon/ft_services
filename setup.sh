@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin wordpress influxdb)
+SERVICES=(nginx mysql phpmyadmin wordpress influxdb ftps)
 
 function @log() {
   echo "Execute function $*" | tr '_' ' '
@@ -82,6 +82,7 @@ function get_ip() {
 
   MINIKUBE_START="$MINIKUBE_IP_1_3".$((START + 1))
   MINIKUBE_END="$MINIKUBE_IP_1_3".254
+  sed -i -e "s/pasv_address=.*/pasv_address=$MINIKUBE_START/g" ./srcs/ftps/srcs/vsftpd.conf
 }
 
 MINIKUBE_IS_LUNCH=$(minikube ip | wc -l | bc)
