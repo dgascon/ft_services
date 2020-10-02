@@ -25,9 +25,6 @@ else
     @eColor "Install PhpMyadmin..." "Install PhpMyadmin Done" /usr/bin/mysql -u root -proot < phpmyadmin.sql
     @eColor "Install UserWordpressTable..." "Install UserWordpressTable Done" /usr/bin/mysql -u root -proot < wordpress.sql
     @eColor "Install UserWordpress..." "Install UserWordpress Done" /usr/bin/mysql -u root -proot < my_user.sql
+    pkill mysqld
+    /usr/bin/mysqld --user=root --datadir=/var/lib/mysql
 fi
-
-while [ true ]
-do
-  true
-done

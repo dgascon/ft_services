@@ -25,11 +25,11 @@ spec:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
           livenessProbe:
-            tcpSocket:
-              port: 3306
+            exec:
+              command: ["mysqladmin", "ping"]
             initialDelaySeconds: 15
-            periodSeconds: 20
-            failureThreshold: 8
+            periodSeconds: 10
+            timeoutSeconds: 5
       volumes:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
