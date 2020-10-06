@@ -5,6 +5,7 @@ EXPOSE 8086
 RUN apk update --no-cache
 RUN apk upgrade --no-cache
 RUN apk add influxdb --no-cache
+RUN apk add bash --no-cache
 
 ENV INFLUXDB_HTTP_AUTH_ENABLED=true
 
@@ -28,8 +29,8 @@ ENV INFLUXDB_DATA_DIR="/var/lib/influxdb/data"
 
 ENV INFLUXDB_DATA_WAL_DIR="/var/lib/influxdb/wal"
 
-COPY ./srcs/setup.sh ./setup.sh
+COPY ./srcs/setup.sh /setup.sh
 
-RUN chmod +x ./setup.sh
+RUN chmod +x /setup.sh
 
-ENTRYPOINT ["/bin/sh", "./setup.sh"]
+ENTRYPOINT ["/bin/sh", "/setup.sh"]

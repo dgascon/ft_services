@@ -28,8 +28,8 @@ spec:
             tcpSocket:
               port: 8086
             initialDelaySeconds: 15
-            periodSeconds: 20
-            failureThreshold: 8
+            periodSeconds: 10
+            timeoutSeconds: 5
       volumes:
         - name: influxdb-persistent-storage
           persistentVolumeClaim:
