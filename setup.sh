@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin wordpress influxdb ftps grafana)
+SERVICES=(nginx mysql phpmyadmin wordpress influxdb grafana)
 
 
 function @log() {
@@ -17,6 +17,7 @@ function clean() {
   for service in ${SERVICES[*]}; do
     clean_service "$service";
   done
+  clean_service ftps
   clean_metallb
   (kubectl delete --all pvc &)
   (kubectl delete --all secrets &)
@@ -71,6 +72,7 @@ function restart() {
 function start() {
   @log get_ip
   @log setup_metallb
+  @log setup ftps
   for service in ${SERVICES[*]}; do
     (@log setup "$service" &)
   done

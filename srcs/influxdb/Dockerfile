@@ -13,8 +13,6 @@ RUN rm telegraf-1.15.2_linux_amd64.tar.gz
 
 COPY srcs/telegraf.conf /etc/telegraf/
 
-# RUN mkdir -p /var/lib/influxd/data/database42
-
 COPY ./srcs/setup.sh /setup.sh
 COPY ./srcs/influxdb.conf /etc/.
 RUN chmod +x /setup.sh
