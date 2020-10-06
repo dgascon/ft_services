@@ -9,6 +9,13 @@ RUN apk add nginx --no-cache
 RUN apk add openssl --no-cache
 RUN apk add openssh --no-cache
 
+RUN apk add libc6-compat gcompat
+RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.15.2_linux_amd64.tar.gz
+RUN tar xf telegraf-1.15.2_linux_amd64.tar.gz -C /
+RUN rm telegraf-1.15.2_linux_amd64.tar.gz
+
+COPY srcs/telegraf.conf /etc/telegraf/
+
 RUN adduser -D -g 'www' www
 RUN echo "www:www" | chpasswd
 

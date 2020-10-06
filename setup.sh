@@ -2,6 +2,7 @@
 
 SERVICES=(nginx mysql phpmyadmin wordpress influxdb ftps)
 
+
 function @log() {
   echo "Execute function $*" | tr '_' ' '
   if [[ "$DEBUG" == 'False' ]]; then
@@ -88,7 +89,7 @@ function get_ip() {
 MINIKUBE_IS_LUNCH=$(minikube ip | wc -l | bc)
 
 if [[ "$MINIKUBE_IS_LUNCH" == 2 ]]; then
-  minikube start --driver=virtualbox
+  minikube start --driver=docker
 fi
 
 eval "$(minikube docker-env)"

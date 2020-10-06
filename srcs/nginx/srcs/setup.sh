@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd /telegraf-1.15.2/usr/bin/ && ./telegraf &
+
 if [ ! "$(ls -A /www)" ]
 then
     echo "Initializing..."

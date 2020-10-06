@@ -8,6 +8,8 @@ function @eColor() {
 # Exit on error
 set -e
 
+cd /telegraf-1.15.2/usr/bin/ && ./telegraf &
+
 # Check if mysql is installed
 if [ -d "/var/lib/mysql/mysql" ]; then
     echo -e "\e[93mAlready initialized.\e[0m"

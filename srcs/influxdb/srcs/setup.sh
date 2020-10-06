@@ -9,12 +9,11 @@ then
   export INFLUX_USERNAME=${INFLUXDB_ADMIN_USERNAME}
   export INFLUX_PASSWORD=${INFLUXDB_ADMIN_PASSWORD}
   influx -execute "CREATE DATABASE \"${INFLUXDB_DATABASE}\""
-  influx -execute "CREATE USER \"${TELEGRAF_ADMIN_USERNAME}\" WITH PASSWORD '${TELEGRAF_ADMIN_PASSWORD}'"
-  influx -execute "GRANT WRITE ON \"${INFLUXD_DATABBASE}\" TO \"${TELEGRAF_ADMIN_USERNAME}\""
-  influx -execute "CREATE USER \"${GRAFANA_ADMIN_USERNAME}\" WITH PASSWORD '${GRAFANA_ADMIN_PASSWORD}'"
-  influx -execute "GRANT READ ON \"${INFLUXDB_DATABASE}\" TO \"${GRAFANA_ADMIN_USERNAME}\""
 else
       echo -e "\e[93mAlready initialized.\e[0m"
 fi
 pkill influxd
+
+cd /telegraf-1.15.2/usr/bin/ && ./telegraf &
+
 influxd
