@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin wordpress influxdb ftps)
+SERVICES=(nginx mysql phpmyadmin wordpress influxdb ftps grafana)
 
 
 function @log() {
