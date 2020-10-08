@@ -75,16 +75,27 @@ function start() {
   @log get_ip
   @log setup_metallb
   @log setup ftps
-  (@log setup mysql &)
-  (@log setup influxdb &)
+  @log setup mysql
+  @log setup influxdb
+  @log setup grafana
+  @log setup wordpress
+  @log setup phpmyadmin
+  @log setup nginx
+  gip
+}
 
-  for service in ${SERVICES[*]}; do
-    (@log setup "$service" &)
-  done
+function gip() {
+  kubectl get service ftps-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ftps://%s:21\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:80\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | https://%s:443\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ssh www@%s -p %s\n", $1, $4, 22}'
+  kubectl get service grafana-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:3000\n", $1, $4}'
+  kubectl get service phpmyadmin-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5000\n", $1, $4}'
+  kubectl get service wordpress-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5050\n", $1, $4}'
 }
 
 function get_ip() {
-  MINIKUBE_IP=$(minikube ip)
+  MINIKUBE_IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)
   MINIKUBE_IP_1_3=$(echo "$MINIKUBE_IP" | cut -d '.' -f 1,2,3)
   START=$(echo "$MINIKUBE_IP" | cut -d '.' -f 4)
 
@@ -93,18 +104,18 @@ function get_ip() {
   sed -i -e "s/pasv_address=.*/pasv_address=$MINIKUBE_START/g" ./srcs/ftps/srcs/vsftpd.conf
 }
 
-MINIKUBE_IS_LUNCH=$(minikube ip | wc -l | bc)
+MINIKUBE_IS_LUNCH=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p | wc -l | bc)
 
 if [[ "$MINIKUBE_IS_LUNCH" == 2 ]]; then
-  minikube start --driver=virtualbox
+  minikube start --driver=docker
 fi
 
 eval "$(minikube docker-env)"
 
-if [[ "$2" == 'DEBUG=True' ]] || [[ "$2" == '-d' ]] || [[ "$2" == '--debug' ]]; then
-  DEBUG='True'
-else
+if [[ "$2" == 'DEBUG=False' ]] || [[ "$2" == '-d' ]] || [[ "$2" == '--debug' ]]; then
   DEBUG='False'
+else
+  DEBUG='True'
 fi
 
 case "$1" in
@@ -127,13 +138,7 @@ dashboard)
   minikube dashboard
   ;;
 ip)
-  kubectl get service ftps-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ftps://%s:21\n", $1, $4}'
-  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:80\n", $1, $4}'
-  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | https://%s:443\n", $1, $4}'
-  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ssh www@%s -p %s\n", $1, $4, 22}'
-  kubectl get service grafana-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:3000\n", $1, $4}'
-  kubectl get service phpmyadmin-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5000\n", $1, $4}'
-  kubectl get service wordpress-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5050\n", $1, $4}'
+  gip
   ;;
 setup_metallb)
   @log setup_metallb
