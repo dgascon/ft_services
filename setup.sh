@@ -11,10 +11,6 @@ function @log() {
     eval "$*"
   fi
   echo -e "\033[32mFunction \033[34m$* \033[32mdone \033[0m "
-  if [ "$#" -ge 2 ]
-    then
-      TRUC+=$(kubectl get service "$2"-service | grep 'service' | awk 'length($4)>6{ printf "%s : %s:21\n", $1, $4}')
-  fi
 }
 
 function clean() {
