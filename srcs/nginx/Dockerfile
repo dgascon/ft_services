@@ -8,6 +8,8 @@ RUN apk upgrade --no-cache
 RUN apk add nginx --no-cache
 RUN apk add openssl --no-cache
 RUN apk add openssh --no-cache
+RUN apk add openrc --no-cache
+RUN openrc boot
 
 RUN apk add libc6-compat gcompat
 RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.15.2_linux_amd64.tar.gz

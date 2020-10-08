@@ -1,16 +1,20 @@
 #!/bin/bash
 
-SERVICES=(nginx mysql phpmyadmin wordpress influxdb grafana)
+SERVICES=(nginx phpmyadmin wordpress grafana)
 
 
 function @log() {
-  echo "Execute function $*" | tr '_' ' '
+  echo -e "\033[33mExecute function \033[34m$* \033[0m" | tr '_' ' '
   if [[ "$DEBUG" == 'False' ]]; then
     eval "$*" 1>/dev/null
   elif [[ "$DEBUG" == 'True' ]]; then
     eval "$*"
   fi
-    echo "Function $2 done"
+  echo -e "\033[32mFunction \033[34m$* \033[32mdone \033[0m "
+  if [ "$#" -ge 2 ]
+    then
+      TRUC+=$(kubectl get service "$2"-service | grep 'service' | awk 'length($4)>6{ printf "%s : %s:21\n", $1, $4}')
+  fi
 }
 
 function clean() {
@@ -18,6 +22,8 @@ function clean() {
     clean_service "$service";
   done
   clean_service ftps
+  clean_service mysql
+  clean_service influxdb
   clean_metallb
   (kubectl delete --all pvc &)
   (kubectl delete --all secrets &)
@@ -73,6 +79,9 @@ function start() {
   @log get_ip
   @log setup_metallb
   @log setup ftps
+  (@log setup mysql &)
+  (@log setup influxdb &)
+
   for service in ${SERVICES[*]}; do
     (@log setup "$service" &)
   done
@@ -91,7 +100,7 @@ function get_ip() {
 MINIKUBE_IS_LUNCH=$(minikube ip | wc -l | bc)
 
 if [[ "$MINIKUBE_IS_LUNCH" == 2 ]]; then
-  minikube start --driver=docker
+  minikube start --driver=virtualbox
 fi
 
 eval "$(minikube docker-env)"
@@ -122,7 +131,13 @@ dashboard)
   minikube dashboard
   ;;
 ip)
-  get_ip
+  kubectl get service ftps-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ftps://%s:21\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:80\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | https://%s:443\n", $1, $4}'
+  kubectl get service nginx-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | ssh www@%s -p %s\n", $1, $4, 22}'
+  kubectl get service grafana-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:3000\n", $1, $4}'
+  kubectl get service phpmyadmin-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5000\n", $1, $4}'
+  kubectl get service wordpress-service | grep 'service' | awk 'length($4)>6{ printf "%-20s | http://%s:5050\n", $1, $4}'
   ;;
 setup_metallb)
   @log setup_metallb
@@ -135,5 +150,8 @@ setup)
   ;;
 clean_service)
   clean_service "$2"
+  ;;
+test)
+  @log "chevre"
   ;;
 esac
